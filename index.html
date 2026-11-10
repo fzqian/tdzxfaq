@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>体德智训 · 招生常见问题</title>
+<style>
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:#F4F6F9;color:#0F1B2D;
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:14px;line-height:1.6}
+  .wrap{max-width:620px;margin:0 auto;padding-bottom:env(safe-area-inset-bottom)}
+
+  /* ---------- 头部 ---------- */
+  .hero{background:linear-gradient(158deg,#0E2A47 0%,#16405F 55%,#1C4F79 100%);
+    color:#fff;padding:24px 20px 18px;border-radius:0 0 24px 24px}
+  .brand{display:flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;opacity:.72;font-weight:600}
+  .brand i{width:5px;height:5px;border-radius:50%;background:#E96A30;display:block}
+  .hero h1{margin:9px 0 5px;font-size:22px;line-height:1.25;letter-spacing:-.01em}
+  .hero .sub{margin:0;font-size:12.5px;opacity:.72}
+  .meta{display:flex;gap:14px;margin-top:13px;font-size:11.5px;opacity:.7}
+  .meta b{font-weight:600;font-size:15px;opacity:1;margin-right:3px}
+
+  /* ---------- 提示条 ---------- */
+  .notice{display:flex;gap:8px;align-items:center;background:#FFF3E9;color:#8A4B22;
+    font-size:11.5px;line-height:1.55;padding:8px 14px 8px 16px}
+  .notice span{flex:1;min-width:0}
+  .notice button{flex:0 0 auto;background:none;border:0;color:#B0764C;font-size:16px;line-height:1;padding:2px 2px;cursor:pointer}
+
+  /* ---------- 搜索（吸顶） ---------- */
+  .toolbar{position:sticky;top:0;z-index:20;background:rgba(244,246,249,.96);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:10px 16px 0}
+  .search{display:flex;align-items:center;gap:8px;height:42px;background:#fff;border-radius:12px;
+    padding:0 12px;box-shadow:0 2px 10px rgba(15,27,45,.07);border:1px solid #EDF0F4}
+  .search svg{flex:0 0 16px;color:#9AA7B5}
+  .search input{flex:1;border:0;outline:0;background:none;font-size:15px;color:#0F1B2D;
+    font-family:inherit;min-width:0}
+  .search input::placeholder{color:#A6B2C0}
+  .search .clear{display:none;border:0;background:#EDF0F4;color:#5B6B7C;width:20px;height:20px;
+    border-radius:50%;font-size:12px;line-height:1;cursor:pointer;padding:0}
+  .search.has .clear{display:block}
+  .chips{display:flex;gap:7px;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chips.hide{display:none}
+  .chip{flex:0 0 auto;padding:6px 13px;border-radius:999px;background:#fff;border:1px solid #E6EAF0;
+    color:#43536A;font-size:12.5px;font-family:inherit;cursor:pointer;white-space:nowrap}
+  .chip.on{background:#0E2A47;color:#fff;border-color:#0E2A47;font-weight:600}
+
+  /* ---------- 分组宫格 ---------- */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:2px 16px 8px}
+  .gcard{display:flex;flex-direction:column;gap:3px;text-align:left;font-family:inherit;
+    background:#fff;border:1px solid #EDF0F4;border-radius:14px;padding:12px 13px 11px;
+    box-shadow:0 1px 3px rgba(15,27,45,.045);cursor:pointer;position:relative;
+    transition:transform .14s,box-shadow .18s,border-color .18s}
+  .gcard:active{transform:scale(.985);box-shadow:0 3px 12px rgba(15,27,45,.09);border-color:#D7E0EC}
+  .gcard.wide{grid-column:span 2}
+  .gcard .no{font-size:10.5px;font-weight:700;color:#B3BFCC;letter-spacing:.1em}
+  .gcard .nm{font-size:15px;font-weight:700;color:#14243A;line-height:1.35}
+  .gcard .ds{font-size:11.5px;color:#8794A5;line-height:1.5;margin-top:1px}
+  .gcard .ct{margin-top:7px;align-self:flex-start;font-size:10.5px;color:#163E63;
+    background:#F1F5FA;border-radius:6px;padding:2px 7px}
+  .gcard.wide{grid-column:span 2;flex-direction:row;align-items:center;gap:9px;padding:11px 14px}
+  .gcard.wide .no{flex:0 0 auto}
+  .gcard.wide .nm{flex:0 0 auto}
+  .gcard.wide .ds{flex:1;min-width:0;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .gcard.wide .ct{margin:0;align-self:center;flex:0 0 auto}
+
+  /* 分组小标题 */
+  .sec-h{display:flex;align-items:baseline;gap:8px;padding:12px 18px 7px}
+  .sec-h span{font-size:12.5px;font-weight:700;color:#43536A;letter-spacing:.04em}
+  .sec-h i{font-size:11px;color:#A3AFBD;font-style:normal}
+  .gcard.tool{border-color:#E3E9F2;background:linear-gradient(180deg,#FFF 0%,#F8FAFD 100%);
+    flex-wrap:wrap;align-items:center}
+  .gcard.tool .no{color:#C2551F}
+  .gcard.tool .ds{flex:1 1 100%;order:5;white-space:normal;overflow:visible;margin:1px 0 0;
+    text-overflow:clip;font-size:11px;color:#8794A5}
+  .gcard.tool .ct{margin-left:auto}
+  .srcnote{padding:10px 18px 4px;font-size:11px;color:#96A3B2;line-height:1.7}
+
+  /* 组内视图收紧头部 */
+  body.ingrp .hero{padding:14px 20px 12px}
+  body.ingrp .hero h1{font-size:17px;margin:6px 0 0}
+  body.ingrp .hero .sub{display:none}
+  body.ingrp .hero .meta{display:none}
+  body.ingrp .notice{display:none}
+
+  /* ---------- 组内返回条 ---------- */
+  .back{display:flex;align-items:center;gap:8px;padding:8px 16px 4px}
+  .back button{display:inline-flex;align-items:center;gap:5px;border:0;background:none;
+    font-family:inherit;font-size:12.5px;color:#5B6B7C;padding:4px 0;cursor:pointer}
+  .gtitle{padding:2px 16px 8px}
+  .gtitle h2{margin:0;font-size:17px;letter-spacing:-.01em}
+  .gtitle p{margin:3px 0 0;font-size:12px;color:#8794A5}
+
+  /* ---------- 列表 ---------- */
+  .list{padding:0 16px 6px;display:flex;flex-direction:column;gap:9px}
+  .hint{padding:2px 16px 6px;font-size:11.5px;color:#7A8899}
+  .card{background:#fff;border:1px solid #EDF0F4;border-radius:14px;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,27,45,.045);transition:box-shadow .2s,border-color .2s}
+  .card.open{box-shadow:0 4px 16px rgba(15,27,45,.08);border-color:#DDE5EF}
+  .q{width:100%;display:flex;align-items:flex-start;gap:9px;padding:13px 14px;background:none;border:0;
+    text-align:left;font-family:inherit;font-size:15px;line-height:1.5;font-weight:600;color:#14243A;cursor:pointer}
+  .idx{flex:0 0 18px;font-size:11px;font-weight:700;color:#A3AFBD;padding-top:3px;
+    font-variant-numeric:tabular-nums}
+  .qt{flex:1;min-width:0}
+  .snip{display:block;margin-top:5px;font-size:11.5px;font-weight:400;color:#8794A5;line-height:1.6}
+  .chev{flex:0 0 16px;margin-top:3px;color:#A3AFBD;transition:transform .25s}
+  .card.open .chev{transform:rotate(180deg);color:#1C4F79}
+  .a{max-height:0;overflow:hidden;transition:max-height .3s cubic-bezier(.4,0,.2,1)}
+  .a-in{padding:11px 14px 14px 41px;border-top:1px dashed #EEF1F5}
+  .a p{margin:0 0 7px;font-size:13.5px;line-height:1.78;color:#43536A}
+  .a p:last-child{margin-bottom:0}
+  .a ul{margin:0 0 7px;padding-left:17px}
+  .a li{font-size:13.5px;line-height:1.75;color:#43536A;margin-bottom:3px}
+  .acts{display:flex;align-items:center;gap:8px;margin-top:11px;flex-wrap:wrap}
+
+  /* ---------- 图文 / 视频 ---------- */
+  .med{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0 -27px}
+  .med figure{margin:0;min-width:0}
+  .med .mi,.med .mv{flex:0 0 100%}
+  .med .half{flex:0 0 calc(50% - 4px)}
+  .med img{width:100%;display:block;border-radius:10px;border:1px solid #E7EDF5;
+    background:#F4F6F9;cursor:zoom-in}
+  .med .half img{height:250px;object-fit:cover;object-position:top}
+  .med .full img{max-height:360px;object-fit:contain;background:#fff}
+  .med figcaption{margin-top:5px;font-size:11px;line-height:1.55;color:#8A97A8;min-height:34px}
+  /* 视频：封面当缩略图，点击全屏播放 */
+  .med .mv .vw{position:relative}
+  .med .mv img{cursor:pointer}
+  .med .mv .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;
+    border-radius:50%;background:rgba(12,26,40,.55);border:1.5px solid rgba(255,255,255,.8);
+    display:flex;align-items:center;justify-content:center;pointer-events:none}
+  .med .mv .play::after{content:"";width:0;height:0;border-left:13px solid #fff;
+    border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
+  .med .mv .dur{position:absolute;right:7px;bottom:7px;background:rgba(12,26,40,.6);color:#fff;
+    font-size:10px;border-radius:5px;padding:1px 5px;pointer-events:none}
+
+  /* ---------- 大图查看 ---------- */
+  .lb{position:fixed;inset:0;background:rgba(8,16,26,.94);z-index:60;display:none;
+    flex-direction:column;align-items:center;justify-content:center;padding:16px}
+  .lb.on{display:flex}
+  .lb img,.lb video{max-width:100%;max-height:82vh;border-radius:8px;object-fit:contain}
+  .lb video{width:auto;height:auto;background:#000}
+  .lb .cap{margin-top:12px;color:#CBD6E3;font-size:12px;text-align:center;line-height:1.6;max-width:90%}
+  .lb .x{position:absolute;right:14px;top:12px;width:34px;height:34px;border-radius:50%;border:0;
+    background:rgba(255,255,255,.14);color:#fff;font-size:18px;line-height:1;cursor:pointer}
+  .mini{font-size:11.5px;font-family:inherit;color:#163E63;background:#F1F5FA;border:0;border-radius:8px;
+    padding:6px 10px;cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+  .mini:active{background:#E4ECF5}
+  .mini.done{background:#E8F5EC;color:#1B7A44}
+  .tag{margin-left:auto;font-size:10.5px;color:#8FA0B2;letter-spacing:.02em}
+  .tag.red{color:#C2551F;background:#FFF0E7;border-radius:5px;padding:1px 6px}
+  .gtag{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:5px;background:#F1F5FA;
+    color:#7A8EA6;font-size:10.5px;font-weight:500;vertical-align:2px;white-space:nowrap}
+  mark{background:#FFE59B;color:inherit;border-radius:2px;padding:0 1px}
+  .empty{text-align:center;padding:40px 24px;color:#7A8899;font-size:13.5px;line-height:1.9}
+  .empty b{display:block;font-size:15px;color:#43536A;margin-bottom:6px}
+
+  /* ---------- 底部 ---------- */
+  .foot{padding:16px 20px 32px;text-align:center;font-size:11.5px;color:#97A4B4;line-height:1.9}
+  .foot b{color:#43536A;font-weight:600}
+  .hotbox{padding:2px 16px 4px}
+  .hotbox h3{margin:10px 0 7px;font-size:12px;color:#8794A5;font-weight:600;letter-spacing:.04em}
+  .hotrow{display:flex;align-items:center;gap:8px;width:100%;background:#fff;border:1px solid #EDF0F4;
+    border-radius:11px;padding:10px 12px;margin-bottom:7px;text-align:left;font-family:inherit;
+    font-size:13.5px;color:#2A3A4E;cursor:pointer;font-weight:500}
+  .hotrow:active{background:#FAFBFD}
+  .hotrow .gp{margin-left:auto;font-size:10.5px;color:#A3AFBD;flex:0 0 auto}
+
+  .top{position:fixed;right:14px;bottom:22px;width:38px;height:38px;border-radius:50%;border:1px solid #E6EAF0;
+    background:#fff;color:#163E63;box-shadow:0 4px 14px rgba(15,27,45,.12);display:none;
+    align-items:center;justify-content:center;cursor:pointer;z-index:30}
+  .top.on{display:flex}
+  .toast{position:fixed;left:50%;bottom:70px;transform:translate(-50%,10px);background:rgba(14,42,71,.92);
+    color:#fff;font-size:12.5px;padding:8px 16px;border-radius:10px;opacity:0;pointer-events:none;
+    transition:.22s;z-index:40;max-width:80%;text-align:center}
+  .toast.on{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="brand"><i></i>体德智训 · 招生作战手册</div>
+    <h1>招生常见问题</h1>
+    <p class="sub">谈单按阶段、工具按用途，点两下就到答案</p>
+    <div class="meta">
+      <span><b id="mGroup">8</b>个分组</span>
+      <span><b id="mTotal">41</b>条问答</span>
+      <span><b>19</b>张截图 <b>5</b>段视频</span>
+    </div>
+  </div>
+
+  <div class="notice" id="notice">
+    <span>谈单部分的价格 / 证书 / 退费为示例口径，按当期制度替换；企微操作部分摘自《企微使用手册》</span>
+    <button onclick="closeNotice()" aria-label="关闭">×</button>
+  </div>
+
+  <div class="toolbar">
+    <div class="search" id="searchBox">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"
+        stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+      <input id="q" type="search" placeholder="搜关键词，如 定金、退费、包就业" autocomplete="off">
+      <button class="clear" id="clear" aria-label="清空">×</button>
+    </div>
+    <div class="chips hide" id="chips"></div>
+  </div>
+
+  <main id="main"></main>
+
+  <div class="foot" id="foot">
+    没找到？先在群里问主管，<b>确认口径后由运营补进本页</b>，不要自行承诺价格与退费。<br>
+    体德智训 · 招生运营
+  </div>
+</div>
+
+<button class="top" id="top" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.4"
+    stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="lb" id="lb">
+  <button class="x" id="lbx" aria-label="关闭">×</button>
+  <img id="lbimg" alt="">
+  <video id="lbv" controls playsinline preload="none" style="display:none"></video>
+  <div class="cap" id="lbcap"></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ==========================================================================
+   ① 分组：按谈单阶段切，顺序就是客户从加到成交的顺序
+   ========================================================================== */
+var GROUPS = [
+  { id:"g1", no:"01", name:"接通建联",  desc:"第一句话决定他愿不愿意继续聊" },
+  { id:"g2", no:"02", name:"探需定级",  desc:"先判断能不能收，再谈别的" },
+  { id:"g3", no:"03", name:"价值传递",  desc:"讲结果，不讲课程表" },
+  { id:"g4", no:"04", name:"方案报价",  desc:"只发价目表，不口头报价" },
+  { id:"g5", no:"05", name:"异议处理",  desc:"大部分单死在这一段" },
+  { id:"g6", no:"06", name:"逼单收口",  desc:"把「再想想」变成具体日期" },
+  { id:"g7", no:"07", name:"入学服务",  desc:"成交不是结束，退费都在这" }
+];
+
+var KINDS = [
+  { id:"all", name:"全部" },
+  { id:"ask", name:"客户会问" },
+  { id:"do",  name:"我要做" },
+  { id:"red", name:"不能说的话" }
+];
+
+/* 企微工具分组：第二级筛法跟谈单阶段不一样，按「我要干的事」切 */
+var TOOL = {
+  id:"g8", no:"08", name:"企微怎么用", sec:"tool",
+  desc:"UID、防撞单、话术、图册、线索",
+  src:"来源：《企微使用手册》（飞书文档，最新修改 9 月 23 日），截图与演示视频均取自手册原文",
+  sub:[
+    { id:"all",  name:"全部" },
+    { id:"why",  name:"为什么换企微" },
+    { id:"uid",  name:"UID 与防撞单" },
+    { id:"lib",  name:"话术与资料" },
+    { id:"line", name:"线索与时效" },
+    { id:"red",  name:"红线" }
+  ]};
+GROUPS.push(TOOL);
+
+/* ==========================================================================
+   ② 问答：g = 所属阶段，kind = ask(客户会问) / do(我要做) / red(红线)
+   a 里 "• " 开头的行渲染成列表
+   ========================================================================== */
+var QA = [
+  /* ---------------- 01 接通建联 ---------------- */
+  { id:"q1", g:"g1", kind:"ask", hot:true, q:"客户开口就问「多少钱」，怎么回？", a:[
+    "先别报价。报得太早，客户只会拿去比价——你的课、师资、就业他都还没听进去。",
+    "顺序是：确认情况 → 给个判断 → 要下一步。",
+    "话术：「你之前有健身基础吗？我按你的情况给你对一下班型，不同班型价格差挺多。」",
+    "他非要一个数，就给区间不给总数：「全日制约在 X 万这个档，具体看你选哪个班，我发你价目表。」"
+  ]},
+  { id:"q2", g:"g1", kind:"ask", q:"客户只发「在吗」，怎么接？", a:[
+    "别只回「在」。客户发「在吗」是在试你态度，这时候谁先给信息谁占主动。",
+    "回：「在的，你说。是想了解学健身教练的事吗？」——主动把话题从寒暄拉到需求。",
+    "他半小时不回，再补一条具体的：「你是想 3 个月全日制，还是周末过来学？」具体问题比「在吗」好回。"
+  ]},
+  { id:"q3", g:"g1", kind:"do", q:"加微信后第一条消息发什么？", a:[
+    "第一条不做推销，做三件事：我是谁、能帮你判断什么、问一个不冒犯的问题。",
+    "模板：「我是体德智训的 XX，负责广州这边招生。你之前了解过健身教练培训吗？我按你的情况帮你对一下班型。」",
+    "发完就等，不要连着第二条。第一条就刷屏的，基本都被删了。"
+  ]},
+
+  /* ---------------- 02 探需定级 ---------------- */
+  { id:"q4", g:"g2", kind:"ask", q:"报名需要什么条件？", a:[
+    "年满 18 周岁，身体健康、无传染病和影响训练的伤病，初中及以上学历。退伍军人、体育生、零基础都可以。",
+    "入学前两件事必须做：体测 + 面谈。这两步是筛人，不是走流程。",
+    "• 体测：基础力量、心肺、柔韧，看身体能不能负荷训练",
+    "• 面谈：表达、形象、学习动机，看适不适合站上台",
+    "口径：我们不筛学历，但会筛「能不能当教练」。不合适就劝退，比收了钱再退费省事。"
+  ]},
+  { id:"q5", g:"g2", kind:"ask", q:"零基础能学吗？跟得上吗？", a:[
+    "能。课程从解剖学、生物力学、基础动作模式开始，前 4 周就是给零基础打底。",
+    "真正跟不上的不是基础差，是出勤和练习量不够。可以这么答：「零基础不影响，缺课才影响。」"
+  ]},
+  { id:"q6", g:"g2", kind:"ask", q:"学多久？什么时候开班？", a:[
+    "全日制约 3 个月，周末班约 5 个月，以当期开班计划为准。",
+    "不要口头承诺「随时插班」「下周就能来」。先查当期班期表，再给具体日期。"
+  ]},
+  { id:"q7", g:"g2", kind:"do", hot:true, q:"怎么判断这个客户值不值得跟？", a:[
+    "看三件事，一次问清：",
+    "• 时间：能不能说出具体月份",
+    "• 钱：谁付、能不能分期",
+    "• 决策权：自己定，还是要问家里",
+    "三个都有 → 重点跟；缺一个 → 补；缺两个 → 转低频，别死磕。",
+    "看动作，不看态度。说「很想学」但一直不给定金的，不是 A 类客户。"
+  ]},
+
+  /* ---------------- 03 价值传递 ---------------- */
+  { id:"q8", g:"g3", kind:"ask", q:"老师是什么配置？", a:[
+    "主教 + 助教 + 班主任。主教管课程和动作，助教跟练纠错，班主任管出勤、考证和就业对接。",
+    "客户真正担心的是「老师行不行」。发主教履历和上课实拍，比一堆形容词有用。"
+  ]},
+  { id:"q9", g:"g3", kind:"ask", q:"学完发什么证书？", a:[
+    "结业证 + 当期合作的职业能力 / 协会认证证书。",
+    "证书名称、考证时间、是否另收费，一律按当期考证安排说明。不要拿去年的说法回答今年的客户。"
+  ]},
+  { id:"q10", g:"g3", kind:"ask", q:"学完能拿多少工资？", a:[
+    "给区间和结构，不给承诺：「一线城市新手私教普遍在 X–X 之间，收入主要看课时量和续课。」",
+    "禁止说「包月入过万」「学完就有 X 万」——这是后面投诉和退费的主要来源。",
+    "更好的做法是发往届学员的真实去向：在哪个城市、哪类门店、大概什么阶段涨的薪。"
+  ]},
+  { id:"q11", g:"g3", kind:"do", q:"怎么介绍课程才不像背书？", a:[
+    "别背课程表，讲三件事：谁教你、练多少、出来能干什么。",
+    "客户记不住 12 个模块，但记得住「每天上手练 4 小时」和「学完能直接带私教课」。",
+    "配图优先：上课实拍、学员前后对比、就业反馈截图。"
+  ]},
+
+  /* ---------------- 04 方案报价 ---------------- */
+  { id:"q12", g:"g4", kind:"ask", hot:true, q:"学费多少钱？", a:[
+    "按班型和住宿方案分档，统一发当期价目表图，不在聊天里报数字、不在群里报数字。",
+    "发图时补一句：「这个价包含 XX，不包含 XX（住宿 / 考证 / 复训）」，避免后面扯皮。",
+    "客户追问「到底多少」，就回：「我发你价目表，你按自己情况对一下，我帮你看哪个合适。」"
+  ]},
+  { id:"q13", g:"g4", kind:"ask", hot:true, q:"能不能便宜点？有没有优惠？", a:[
+    "不降价，改降配。价格是统一的，谁松口谁负责。",
+    "能动的只有三样：",
+    "• 住宿方案（走读 / 合租 / 校内）",
+    "• 付款方式（一次性 / 分期）",
+    "• 赠项（复训、考证辅导、装备）",
+    "话术：「价格我改不了，但我可以帮你把住宿这块省下来。」"
+  ]},
+  { id:"q14", g:"g4", kind:"ask", q:"可以分期吗？", a:[
+    "支持分期，需审核资质，以合作机构当期政策为准。",
+    "必须提前讲清利息和手续费总额，不要只说「每月几百块」。客户后来发现多还几千，一定退费。"
+  ]},
+  { id:"q15", g:"g4", kind:"do", q:"价目表什么时候发、发哪一版？", a:[
+    "发之前要满足两条：需求问清楚了、班型有方向了。上来就发，只会被拿去比价。",
+    "只发当期版本。旧版一律撤回并删除，发错版本按价格事故处理。",
+    "发完跟一句：「含什么不含什么，你按自己情况对一下，我帮你看哪个合适。」"
+  ]},
+
+  /* ---------------- 05 异议处理 ---------------- */
+  { id:"q16", g:"g5", kind:"ask", hot:true, q:"客户说太贵了 / 别家便宜", a:[
+    "先接住，不要马上反驳：「确实不算便宜，你现在对比的是哪家？」",
+    "问出他比的到底是价格还是价值：班期长短、住宿、考证、就业资源，一项项拆。",
+    "不要一上来就降价或送东西——你让一次，他会再要第二次。"
+  ]},
+  { id:"q17", g:"g5", kind:"ask", hot:true, q:"包就业吗？", a:[
+    "不承诺包分配。我们做的是：简历打磨 + 模拟面试 + 合作门店推荐 + 就业跟踪。",
+    "统一口径：「推荐就业，不包分配。」",
+    "为了让客户交钱而说「包就业」，后面一定变成投诉和退费，没有例外。"
+  ]},
+  { id:"q18", g:"g5", kind:"ask", q:"我再考虑一下 / 家里不同意", a:[
+    "「再考虑」= 还有一个没说出口的顾虑。别问「你考虑什么」，问具体的：「是价格这块，还是时间排不开？」",
+    "家里反对的，多半是「学完能不能挣钱」没讲清。把就业路径和往届真实去向发过去，让他能给家里一个交代。",
+    "最后给一个具体时间：「那我周三再跟你确认，你看行不行？」"
+  ]},
+  { id:"q19", g:"g5", kind:"red", q:"哪些话绝对不能说？", a:[
+    "这几句任何情况下都不要说，说了就是投诉和退费：",
+    "• 「包就业」「包分配」",
+    "• 「证书全国通用、包过」",
+    "• 「随时可以全额退」",
+    "• 「这个价今天最后一天」（假期限）",
+    "• 「我私下给你便宜点」",
+    "统一口径：推荐就业不包分配；证书按当期考证安排；退费按合同条款。"
+  ]},
+
+  /* ---------------- 06 逼单收口 ---------------- */
+  { id:"q20", g:"g6", kind:"ask", q:"定金多少？交了能退吗？", a:[
+    "定金金额以当期政策为准；退改按合同条款执行（开课前 X 天可退或转班），口头不承诺「随时退」。",
+    "收款只走公司收款码 / 对公账户，禁止个人微信、支付宝代收。这是红线。"
+  ]},
+  { id:"q21", g:"g6", kind:"do", hot:true, q:"客户已读不回，怎么跟？", a:[
+    "按节奏跟，不要连发「在吗」。",
+    "• 当天：不追，让他消化",
+    "• 第 2 天：发一条价值信息（学员案例 / 校区实拍 / 就业反馈）",
+    "• 第 4 天：问一个具体问题（「你打算几月来？」「住宿要不要一起安排？」）",
+    "• 第 7 天：给期限（本期名额、开班日期）",
+    "• 第 15 天：转低频维护，一周一次",
+    "每次只推进一步，一条消息只问一件事。"
+  ]},
+  { id:"q22", g:"g6", kind:"do", q:"怎么用名额和开班时间推进？", a:[
+    "只讲事实，不讲恐吓：「这期还剩 2 个床位」「下期开班是 X 月 X 日」。",
+    "不要编「名额只剩 1 个」——学员之间会互相问，一戳穿信任就没了。",
+    "推进的本质是给一个具体日期，不是催他交钱。"
+  ]},
+
+  /* ---------------- 07 入学服务 ---------------- */
+  { id:"q23", g:"g7", kind:"ask", q:"住宿怎么解决？多少钱？", a:[
+    "校内宿舍 / 合作公寓，按床位月付，费用另计，不含在学费里。",
+    "需要预留床位提前 3 天报备。先确认入住时间再报床位，别先说「肯定有位置」。"
+  ]},
+  { id:"q24", g:"g7", kind:"ask", q:"能先到校参观 / 试听吗？", a:[
+    "可以。预约到校参观或试听 1 天，提前一天报备，由助教接待。",
+    "到校是最强的转化动作，能约到校就不要只在微信里聊。"
+  ]},
+  { id:"q25", g:"g7", kind:"do", q:"客户要退费怎么处理？", a:[
+    "① 先安抚不辩解 → ② 核对合同条款和已上课时 → ③ 当天提交退费申请给主管 → ④ 3 个工作日内给书面答复",
+    "任何情况下不在群里承诺退款金额、不承诺到账时间，所有答复以书面为准。"
+  ]},
+
+  /* ================= 08 企微怎么用 ================= */
+  /* ---------------- 为什么换企微 ---------------- */
+  { id:"q26", g:"g8", kind:"why", hot:true, q:"企微跟微信到底差在哪？", a:[
+    "四条，条条跟谈单有关：",
+    "• 加人：企微主要靠手机号添加，进线环节已优化，每条不同联系方式的线索都能转到企微；微信可以微信号、手机号加。",
+    "• 朋友圈：企微每天 3 条就达标，管理员统一创建，老师一键转发即可；微信要 5 条才算达标。",
+    "• 资料：企微把话术、图片、文件、商品图册统一管起来，聊天时直接找、直接发。",
+    "• 防撞单：手机号 + UID + 重复提醒 + CRM 查重，四道叠加，微信只有手机号一道。"
+  ], m:[
+    {t:"i", h:1, s:"assets/media/m33.jpg", c:"手机端：设置 → 联系人权限"},
+    {t:"i", h:1, s:"assets/media/m34.jpg", c:"把「可通过手机号搜索到我」打开，客户才能用手机号搜到你的企微"},
+    {t:"v", d:"0:08", s:"assets/media/m35.mp4", p:"assets/media/m35_frame.jpg", c:"演示：客户用手机号搜索并添加企微"}
+  ]},
+  { id:"q27", g:"g8", kind:"why", q:"用企微对招生有什么好处？", a:[
+    "官方三句话，背下来也不吃亏：",
+    "• 防撞单更全面：三重自动查重——进线拦截、添加提醒、录入校验，系统替你把关",
+    "• 资料查找更方便：笔记、图册、机器人全在对话栏，关键词秒搜直达",
+    "• 谈单更有体系：个人话术库，素材跟着话术走，能复用到每一次沟通"
+  ]},
+  { id:"q28", g:"g8", kind:"why", q:"我什么时候必须开始用企微谈单？", a:[
+    "按入职年限分批，手册口径：",
+    "• 入职 1 年内：2026 年 9 月起，直接使用企微谈单",
+    "• 入职 1–2 年：2026 年 11 月起，转移线索至企微（暂定）",
+    "• 入职 2 年以上：2026 年 12 月起",
+    "时间以手册最新版本为准，有顺延以群里通知为准，别拿这一条跟主管争。"
+  ]},
+
+  /* ---------------- UID 与防撞单 ---------------- */
+  { id:"q29", g:"g8", kind:"uid", hot:true, q:"UID 是什么？为什么不用微信号了？", a:[
+    "UID 是同一微信开放平台下，识别同一微信用户的唯一通用身份编号。",
+    "一句话：UID ＝ 客户的身份证号，微信号只是他的昵称。同一个客户不管从哪个渠道、加哪个销售的企微，UID 都不变。",
+    "这就是为什么用 UID 判重：微信号可以改、可以不填、可以换号再进线，UID 改不了。"
+  ]},
+  { id:"q30", g:"g8", kind:"uid", hot:true, q:"UID 在哪里查？", a:[
+    "两边路径不一样，记住就行：",
+    "• 手机端：客户聊天页 → 打开【用户画像】 → 客户资料里找 UID（unionid）→ 复制",
+    "• 电脑端：客户聊天窗口 → 右侧客户详情 / 用户画像 → 找 UID（unionid）→ 复制",
+    "找不到就是没打开用户画像，不是在别的菜单里。"
+  ], m:[
+    {t:"i", h:1, s:"assets/media/m02.jpg", c:"手机端：在聊天页点工具栏「用户画像」"},
+    {t:"i", h:1, s:"assets/media/m01.jpg", c:"用户画像里的 UID（unionid），长按复制"},
+    {t:"v", d:"0:11", s:"assets/media/m07.mp4", p:"assets/media/m07_frame.jpg", c:"演示：手机端三步找到 UID"}
+  ]},
+  { id:"q31", g:"g8", kind:"uid", q:"UID 在 CRM 填哪里？填错会怎样？", a:[
+    "CRM 客户 / 线索信息里找【微信 UID】字段，把企微里复制的 UID 完整粘贴后保存。",
+    "一定要复制，不要手动输入——漏一个字符就变成另一个 UID，等于没填。",
+    "后果：重复 UID 系统直接不让录入，这条线索就判给别人了；填错的，事后核对时也算你录错。"
+  ], m:[
+    {t:"i", s:"assets/media/m04.jpg", c:"电脑端 CRM：客户 / 线索信息里的【微信 UID】字段"}
+  ]},
+  { id:"q32", g:"g8", kind:"uid", q:"三重防撞单具体查哪三道？", a:[
+    "覆盖「进线 → 加企微 → 录 CRM」全过程，尽量在更早阶段发现重复客户：",
+    "• 第一道：CRM 进线查重——手机号去重（原来就有）",
+    "• 第二道：企微添加提醒——重复客户实时提醒（新增功能）",
+    "• 第三道：CRM 录入查重——重复 UID 无法录入（等同原来的「重复微信号无法录入」）",
+    "所以三件事都要做全：手机号要真、重复提醒要看、UID 要录。少一道就是给自己留坑。"
+  ]},
+  { id:"q33", g:"g8", kind:"uid", q:"入职超过 1 年了，现在最少要做什么？", a:[
+    "手册里给老招生的过渡动作就一件：",
+    "引导客户添加企微 → 获取客户 UID → 上传到 CRM。",
+    "做完这一步就已经能防撞单了，其他（话术库、图册、机器人）可以慢慢上手。",
+    "手册给的时限是 10 月 30 号之前；已经过了就尽快补，补之前每单都是裸奔。"
+  ]},
+
+  /* ---------------- 话术与资料 ---------------- */
+  { id:"q34", g:"g8", kind:"lib", hot:true, q:"团队话术在哪？怎么发才不算发错？", a:[
+    "常用参考话术已统一同步到企微话术库，在客户聊天侧边栏直接找、直接发，不用再翻收藏夹和群文件。",
+    "• 内容不用改：直接发送",
+    "• 要按客户情况改：点左下角【编辑】，改完再发",
+    "涉及称呼、课程需求、价格、时间这几项，发之前一定再看一遍——模板里的占位没改就发出去，是最常见的翻车方式。"
+  ], m:[
+    {t:"i", h:1, s:"assets/media/m17.jpg", c:"话术内容页：左下角【编辑】，改完再发"},
+    {t:"v", d:"0:43", s:"assets/media/m09.mp4", p:"assets/media/m09_frame.jpg", c:"演示：从聊天工具栏打开「企微话术」并发送"}
+  ]},
+  { id:"q35", g:"g8", kind:"lib", q:"个人话术库怎么建，值不值得花时间？", a:[
+    "值得。把你自己高频说的话攒成库：开场、需求确认、课程介绍、异议处理、跟进提醒，五类基本够用。",
+    "企微支持「话术 + 物料」：一条话术里可以带图片、文件、视频号视频链接，文字说明和对应物料放同一条，发的时候一次找到。",
+    "省的是来回找资料的时间，谈单的时候最忌讳「你等下我找下图」。"
+  ], m:[
+    {t:"i", h:1, s:"assets/media/m12.jpg", c:"新建个人话术：标题 + 分组 + 类型"},
+    {t:"i", h:1, s:"assets/media/m13.jpg", c:"话术类型选好后，一条话术就归到对应场景"},
+    {t:"v", d:"0:43", s:"assets/media/m15.mp4", p:"assets/media/m15_frame.jpg", c:"演示：新建一条个人话术并保存"}
+  ]},
+  { id:"q36", g:"g8", kind:"lib", q:"商品图册是什么？怎么搜？", a:[
+    "商品图册＝谈单笔记。在客户聊天侧边栏就能搜索、预览、分享，不用退出聊天再去翻文件。",
+    "用法：前期按关键词搜具体文档，熟悉之后直接翻更快。",
+    "两个容易误解的点：",
+    "• 图册里的「价格」是上架必填信息，不会开通收款渠道，客户打开只是看资料，不需要付款",
+    "• 自己有笔记要同步进商品图册，找阿梅"
+  ], m:[
+    {t:"v", d:"0:22", s:"assets/media/m24.mp4", p:"assets/media/m24_frame.jpg", c:"演示：在商品图册里搜索并分享"},
+    {t:"i", h:1, s:"assets/media/m18.jpg", c:"聊天侧边栏 →「商品图册」"},
+    {t:"i", h:1, s:"assets/media/m20.jpg", c:"按关键词搜出来的图册条目"},
+    {t:"i", h:1, s:"assets/media/m00.jpg", c:"图册里的一份资料（例：校区宿舍介绍）"}
+  ]},
+  { id:"q37", g:"g8", kind:"lib", q:"招生案例小助手（企微机器人）怎么用？", a:[
+    "企微机器人 2.0 正在升级为【招生案例小助手】，会优化推荐精准度。",
+    "用法：直接搜系统库里的学生案例，机器人回复的图片都是过往宣传图，可以直接转给客户。",
+    "好处是不用自己存一堆案例图，也不会发到过期或不该外发的素材。"
+  ], m:[
+    {t:"i", h:1, s:"assets/media/m27.jpg", c:"在「招生案例小助手」里搜案例"},
+    {t:"i", h:1, s:"assets/media/m28.jpg", c:"机器人直接把案例图和话术发给你"},
+    {t:"i", h:1, s:"assets/media/m30.jpg", c:"回的是宣传图，可直接转给客户"}
+  ]},
+
+  /* ---------------- 线索与时效 ---------------- */
+  { id:"q38", g:"g8", kind:"line", hot:true, q:"官方留资的线索，现在怎么跟？", a:[
+    "按线索类型分两种，动作不一样：",
+    "• 留手机号的线索：联系动作不变，只是把「加微信」换成「用企微添加」",
+    "• 留微信号的线索：你只需要做一个动作——按已有话术，承接好由私域转推过来的线索",
+    "时效照旧：线索落入 CRM → 钉钉实时通知 → 1 小时内完成首次联系，联系不上的当天同步给流量部线索运营。"
+  ], m:[
+    {t:"i", s:"assets/media/m25.jpg", c:"手机号线索 vs 微信号线索：两套处理方式对照"}
+  ]},
+  { id:"q39", g:"g8", kind:"line", q:"微信号线索为什么要等私域转推？会不会不算我的？", a:[
+    "流程是这样的：线索落 CRM → 钉钉通知招生和私域 → 私域用专门微信加客户 → 加成功后把客户名片转推给你 → 从转推那刻开始算你的 1 小时首联。",
+    "两个关键规则：",
+    "• 私域三天内加不上这个客户，这条线索不计入你当月的线索量（也就是不占你名额）",
+    "• 9 月 17 号起，不管入职年限，微信号进线渠道全部由私域添加后转推（等同 B 站）",
+    "你要做的：先加上私域的专门微信，不然名片转不过来。"
+  ], m:[
+    {t:"i", h:1, s:"assets/media/m36.jpg", c:"私域专门微信 ①：体德小贤"},
+    {t:"i", h:1, s:"assets/media/m37.jpg", c:"②：体德小助理（长沙南京广州）"},
+    {t:"i", h:1, s:"assets/media/m38.jpg", c:"③：体德助教李老师"},
+    {t:"i", h:1, s:"assets/media/m39.jpg", c:"④：体德红助理"}
+  ]},
+
+  /* ---------------- 红线 ---------------- */
+  { id:"q40", g:"g8", kind:"red", hot:true, q:"收到「重复添加提醒」，能不能直接问客户？", a:[
+    "不能。这一条是硬红线。",
+    "手册原文：对于二次分配的用户，招生老师收到重复添加提醒后，不可以去私聊及质问客户，否则将失去后续判单资格。",
+    "原因很简单：客户被两个销售轮着问「你是不是加过别人」，他第一反应是这家公司管理混乱，直接不来了。",
+    "正确动作：截图提醒 + 客户 UID → 交给主管或运营核实归属，自己不找客户对质。"
+  ], m:[
+    {t:"i", h:1, s:"assets/media/m05.jpg", c:"手机端：重复客户提醒列表"},
+    {t:"i", h:1, s:"assets/media/m06.jpg", c:"点进去能看到重复的是哪一条客户"},
+    {t:"i", h:1, s:"assets/media/m08.jpg", c:"电脑端：重复提醒详情，带 UID 和归属销售"}
+  ]},
+  { id:"q41", g:"g8", kind:"red", q:"企微里还有哪些容易踩的动作？", a:[
+    "• UID 手动输入或复制不全 → CRM 录不进，等于白跟一单",
+    "• 团队话术不改占位直接发，称呼和价格还是模板 → 客户一眼看出是群发",
+    "• 以为商品图册要客户付款 → 图册不开收款，客户只是看资料，别催「点进去付款」",
+    "• 绕过私域自己去加微信号线索（流程外操作，容易变成重复添加）"
+  ]}
+];
+
+/* ========================= 以下为渲染逻辑 ========================= */
+var state = { g: null, kind: "all", term: "" };
+var $main = document.getElementById("main");
+var $chips = document.getElementById("chips");
+var $q = document.getElementById("q");
+var $box = document.getElementById("searchBox");
+var $clear = document.getElementById("clear");
+var $foot = document.getElementById("foot");
+var $toast = document.getElementById("toast");
+
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+  return ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" })[c]; }); }
+
+function mark(html, term){
+  if(!term) return html;
+  var safe = term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  try { return html.replace(new RegExp(safe, "gi"), function(m){ return "<mark>"+m+"</mark>"; }); }
+  catch(e){ return html; }
+}
+
+function groupOf(id){
+  for(var i=0;i<GROUPS.length;i++){ if(GROUPS[i].id===id) return GROUPS[i]; }
+  return { name:"" };
+}
+function kindName(k){
+  for(var i=0;i<KINDS.length;i++){ if(KINDS[i].id===k) return KINDS[i].name; }
+  for(var j=0;j<GROUPS.length;j++){
+    var s = GROUPS[j].sub;
+    if(!s) continue;
+    for(var m=0;m<s.length;m++){ if(s[m].id===k) return s[m].name; }
+  }
+  return "";
+}
+function inGroup(gid){ return QA.filter(function(it){ return it.g === gid; }); }
+
+function matchQ(it, term){
+  if(!term) return true;
+  var t = term.toLowerCase();
+  var cap = (it.m || []).map(function(x){ return x.c || ""; }).join(" ");
+  return (it.q + " " + it.a.join(" ") + " " + cap).toLowerCase().indexOf(t) > -1;
+}
+
+function snippet(it, term){
+  if(!term) return "";
+  var t = term.toLowerCase();
+  if(it.q.toLowerCase().indexOf(t) > -1) return "";
+  var txt = it.a.join(" ").replace(/• /g, "");
+  var i = txt.toLowerCase().indexOf(t);
+  if(i < 0) return "";
+  var s = Math.max(0, i - 12), e = Math.min(txt.length, i + term.length + 20);
+  var frag = (s > 0 ? "…" : "") + txt.slice(s, e) + (e < txt.length ? "…" : "");
+  return '<span class="snip">答案里提到：' + mark(esc(frag), term) + '</span>';
+}
+
+function blocks(lines, term){
+  var out = "", buf = [];
+  function flush(){
+    if(buf.length){
+      out += "<ul>" + buf.map(function(t){ return "<li>"+mark(esc(t),term)+"</li>"; }).join("") + "</ul>";
+      buf = [];
+    }
+  }
+  lines.forEach(function(line){
+    if(line.indexOf("• ") === 0){ buf.push(line.slice(2)); }
+    else { flush(); out += "<p>"+mark(esc(line),term)+"</p>"; }
+  });
+  flush();
+  return out;
+}
+
+function mediaHTML(it){
+  if(!it.m || !it.m.length) return "";
+  var out = '<div class="med">';
+  it.m.forEach(function(x, i){
+    if(x.t === "v"){
+      out += '<figure class="mv half"><div class="vw">'
+        + '<img loading="lazy" src="'+x.p+'" alt="'+esc(x.c)+'" data-vsrc="'+x.s+'" data-cap="'+esc(x.c)+'">'
+        + '<span class="play"></span><span class="dur">'+(x.d||"")+'</span>'
+        + '</div><figcaption>'+esc(x.c)+'</figcaption></figure>';
+    } else {
+      out += '<figure class="mi '+(x.h ? "half" : "full")+'">'
+        + '<img loading="lazy" src="'+x.s+'" alt="'+esc(x.c)+'" data-cap="'+esc(x.c)+'">'
+        + '<figcaption>'+esc(x.c)+'</figcaption></figure>';
+    }
+  });
+  return out + '</div>';
+}
+
+function cardsHTML(rows, term, showGroup){
+  var out = "";
+  rows.forEach(function(it, i){
+    var no = ("0" + (i + 1)).slice(-2);
+    var tag = it.kind === "red" ? '<span class="tag red">'+(it.g==="g8"?"禁止动作":"不能这么说")+'</span>'
+                                : '<span class="tag">'+kindName(it.kind)+'</span>';
+    var gtag = showGroup ? '<span class="gtag">'+esc(groupOf(it.g).name)+'</span>' : '';
+    out += '<article class="card" id="'+it.id+'">'
+      + '<button class="q" aria-expanded="false">'
+      +   '<span class="idx">'+no+'</span>'
+      +   '<span class="qt">'+mark(esc(it.q), term)+gtag+snippet(it, term)+'</span>'
+      +   '<svg class="chev" viewBox="0 0 24 24" width="16" height="16" fill="none" '
+      +     'stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">'
+      +     '<path d="M6 9l6 6 6-6"/></svg>'
+      + '</button>'
+      + '<div class="a"><div class="a-in">'
+      +   blocks(it.a, term)
+      +   mediaHTML(it)
+      +   '<div class="acts">'
+      +     '<button class="mini" data-copy="'+it.id+'">复制答案</button>'
+      +     '<button class="mini" data-link="'+it.id+'">复制单条链接</button>'
+      +     tag
+      +   '</div>'
+      + '</div></div>'
+      + '</article>';
+  });
+  return out;
+}
+
+/* ---------------- 首页：分组宫格 ---------------- */
+function renderHome(){
+  $chips.className = "chips hide";
+
+  var stages = GROUPS.filter(function(g){ return !g.sec; });
+  var tools  = GROUPS.filter(function(g){ return g.sec === "tool"; });
+
+  function card(g, wide){
+    var n = inGroup(g.id).length;
+    return '<button class="gcard'+(wide?" wide":"")+(g.sec==="tool"?" tool":"")+'" data-g="'+g.id+'">'
+      + '<span class="no">'+g.no+'</span>'
+      + '<span class="nm">'+esc(g.name)+'</span>'
+      + '<span class="ds">'+esc(g.desc)+'</span>'
+      + '<span class="ct">'+n+' 条</span>'
+      + '</button>';
+  }
+
+  var grid = '<div class="sec-h"><span>谈单阶段</span><i>客户从加到成交的顺序</i></div>'
+    + '<div class="grid">' + stages.map(function(g, i){
+        return card(g, i === stages.length - 1);
+      }).join("") + '</div>';
+
+  var toolHTML = tools.length
+    ? '<div class="sec-h"><span>工具与规则</span><i>企微操作，跟阶段无关</i></div>'
+      + '<div class="grid">' + tools.map(function(g){ return card(g, true); }).join("") + '</div>'
+    : "";
+
+  var HOT_IDS = ["q1","q12","q17","q29","q40","q30"];
+  var hot = HOT_IDS.map(function(id){
+    for(var i=0;i<QA.length;i++){ if(QA[i].id===id) return QA[i]; }
+    return null;
+  }).filter(Boolean);
+  var hotHTML = '<div class="hotbox"><h3>现在最常被问的</h3>'
+    + hot.map(function(it){
+        return '<button class="hotrow" data-q="'+it.id+'">'
+          + '<span>'+esc(it.q)+'</span>'
+          + '<span class="gp">'+esc(groupOf(it.g).name)+'</span></button>';
+      }).join("")
+    + '</div>';
+
+  $main.innerHTML = grid + toolHTML + hotHTML;
+  $foot.style.display = "";
+}
+
+/* ---------------- 组内：二级筛选 + 列表 ---------------- */
+function renderGroup(gid){
+  var g = groupOf(gid);
+  var all = inGroup(gid);
+  var pool = g.sub || KINDS;
+  var kinds = pool.filter(function(k){
+    return k.id === "all" || all.some(function(it){ return it.kind === k.id; });
+  });
+  if(state.kind !== "all" && !kinds.some(function(k){ return k.id === state.kind; })) state.kind = "all";
+
+  $chips.className = "chips";
+  $chips.innerHTML = kinds.map(function(k){
+    var n = k.id === "all" ? all.length
+      : all.filter(function(it){ return it.kind === k.id; }).length;
+    return '<button class="chip'+(state.kind===k.id?" on":"")+'" data-kind="'+k.id+'">'
+      + k.name + '<span style="opacity:.55;margin-left:4px">'+n+'</span></button>';
+  }).join("");
+
+  var rows = all.filter(function(it){ return state.kind === "all" || it.kind === state.kind; });
+
+  $main.innerHTML =
+      '<div class="back"><button data-home="1">'
+    + '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" '
+    + 'stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>'
+    + '全部分组</button></div>'
+    + '<div class="gtitle"><h2>'+g.no+' · '+esc(g.name)+'</h2><p>'+esc(g.desc)+' · 共 '+all.length+' 条</p></div>'
+    + '<div class="list">' + cardsHTML(rows, "", false) + '</div>'
+    + (g.src ? '<div class="srcnote">'+esc(g.src)+'。文中的时限、路径改动以手册最新版本和群里通知为准。</div>' : '');
+  $foot.style.display = "";
+}
+
+/* ---------------- 搜索：全局 ---------------- */
+function renderSearch(term){
+  $chips.className = "chips hide";
+  var rows = QA.filter(function(it){ return matchQ(it, term); });
+  if(!rows.length){
+    $main.innerHTML = '<div class="empty"><b>没搜到「'+esc(term)+'」</b>'
+      + '换个说法试试，比如「UID」「退费」「包就业」<br>还是找不到，就在群里问主管。</div>';
+    $foot.style.display = "none";
+    return;
+  }
+  $main.innerHTML = '<div class="hint">找到 ' + rows.length + ' 条 · 关键词「'
+    + esc(term) + '」</div><div class="list">' + cardsHTML(rows, term, true) + '</div>';
+  $foot.style.display = "";
+}
+
+function render(){
+  var term = state.term.trim();
+  document.body.classList.toggle("ingrp", !!state.g && !term);
+  if(term) return renderSearch(term);
+  if(state.g) return renderGroup(state.g);
+  renderHome();
+}
+
+/* ---------------- 展开 / 收起 ---------------- */
+function openCard(card, yes){
+  var body = card.querySelector(".a");
+  var btn  = card.querySelector(".q");
+  if(yes){
+    card.classList.add("open");
+    btn.setAttribute("aria-expanded", "true");
+    body.style.maxHeight = body.scrollHeight + 40 + "px";
+    card.querySelectorAll("img").forEach(function(im){
+      if(im.dataset.b) return;
+      im.dataset.b = "1";
+      im.addEventListener("load", function(){
+        if(card.classList.contains("open")) body.style.maxHeight = body.scrollHeight + 40 + "px";
+      });
+    });
+  } else {
+    card.classList.remove("open");
+    btn.setAttribute("aria-expanded", "false");
+    body.style.maxHeight = "0px";
+  }
+}
+
+$main.addEventListener("click", function(e){
+  var g = e.target.closest("[data-g]");
+  if(g){ state.g = g.getAttribute("data-g"); state.kind = "all"; state.term = "";
+    $q.value = ""; $box.classList.remove("has"); render();
+    window.scrollTo({ top: 0 }); return; }
+
+  var h = e.target.closest("[data-home]");
+  if(h){ state.g = null; state.kind = "all"; render(); window.scrollTo({ top: 0 }); return; }
+
+  var hq = e.target.closest("[data-q]");
+  if(hq){ jumpTo(hq.getAttribute("data-q")); return; }
+
+  var k = e.target.closest("[data-kind]");
+  if(k){ state.kind = k.getAttribute("data-kind"); render(); return; }
+
+  var q = e.target.closest(".q");
+  if(q){ var card = q.parentNode; openCard(card, !card.classList.contains("open")); return; }
+
+  var c = e.target.closest("[data-copy]");
+  if(c){ copyAnswer(c.getAttribute("data-copy"), c); return; }
+
+  var l = e.target.closest("[data-link]");
+  if(l){ copyLink(l.getAttribute("data-link"), l); return; }
+
+  var im = e.target.closest(".med img");
+  if(im){
+    if(im.getAttribute("data-vsrc")) openVideo(im.getAttribute("data-vsrc"), im.getAttribute("data-cap") || "");
+    else openLB(im.getAttribute("src"), im.getAttribute("data-cap") || "");
+    return;
+  }
+});
+
+/* ---------------- 大图 / 视频查看 ---------------- */
+var $lb = document.getElementById("lb"),
+    $lbi = document.getElementById("lbimg"),
+    $lbv = document.getElementById("lbv"),
+    $lbc = document.getElementById("lbcap");
+function openLB(src, cap){
+  $lbv.pause(); $lbv.removeAttribute("src"); $lbv.style.display = "none";
+  $lbi.style.display = ""; $lbi.src = src; $lbc.textContent = cap || "";
+  $lb.classList.add("on");
+  document.body.style.overflow = "hidden";
+}
+function openVideo(src, cap){
+  $lbi.style.display = "none"; $lbi.removeAttribute("src");
+  $lbv.style.display = ""; $lbv.src = src;
+  $lbv.play().catch(function(){});
+  $lbc.textContent = cap || "";
+  $lb.classList.add("on");
+  document.body.style.overflow = "hidden";
+}
+function closeLB(){
+  $lb.classList.remove("on");
+  $lbi.removeAttribute("src");
+  $lbv.pause(); $lbv.removeAttribute("src"); $lbv.load();
+  document.body.style.overflow = "";
+}
+$lb.addEventListener("click", function(e){
+  if(e.target.id === "lbimg" || e.target.id === "lbv") return;   // 点内容不关
+  closeLB();
+});
+document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeLB(); });
+
+function jumpTo(id){
+  var it = null;
+  for(var i=0;i<QA.length;i++){ if(QA[i].id===id) it = QA[i]; }
+  if(!it) return;
+  state.g = it.g; state.kind = "all"; state.term = ""; $q.value = "";
+  $box.classList.remove("has");
+  render();
+  var card = document.getElementById(id);
+  if(card){
+    openCard(card, true);
+    setTimeout(function(){
+      var y = card.getBoundingClientRect().top + window.scrollY - 120;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }, 60);
+  }
+}
+
+/* ---------------- 复制 ---------------- */
+function answerText(id){
+  var it = null;
+  for(var i=0;i<QA.length;i++){ if(QA[i].id===id) it = QA[i]; }
+  if(!it) return "";
+  return it.q + "\n" + it.a.join("\n");
+}
+
+function copy(text, done){
+  function fallback(){
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch(e){}
+    document.body.removeChild(ta);
+  }
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(done, function(){ fallback(); done(); });
+  } else { fallback(); done(); }
+}
+
+function copyAnswer(id, btn){
+  copy(answerText(id), function(){
+    var old = btn.textContent;
+    btn.textContent = "已复制"; btn.classList.add("done");
+    toast("答案已复制，可直接发给客户");
+    setTimeout(function(){ btn.textContent = old; btn.classList.remove("done"); }, 1600);
+  });
+}
+
+function copyLink(id, btn){
+  var url = location.origin + location.pathname + "#" + id;
+  copy(url, function(){
+    var old = btn.textContent;
+    btn.textContent = "已复制"; btn.classList.add("done");
+    toast("单条链接已复制，发到群里可直接定位");
+    setTimeout(function(){ btn.textContent = old; btn.classList.remove("done"); }, 1600);
+  });
+}
+
+function toast(msg){
+  $toast.textContent = msg;
+  $toast.classList.add("on");
+  clearTimeout(toast._t);
+  toast._t = setTimeout(function(){ $toast.classList.remove("on"); }, 1800);
+}
+
+/* ---------------- 搜索输入 ---------------- */
+var timer;
+$q.addEventListener("input", function(){
+  var v = this.value;
+  $box.classList.toggle("has", !!v);
+  clearTimeout(timer);
+  timer = setTimeout(function(){
+    state.term = v;
+    if(!v.trim()) { render(); return; }
+    render();
+  }, 120);
+});
+$clear.addEventListener("click", function(){
+  $q.value = ""; state.term = ""; $box.classList.remove("has");
+  render(); $q.focus();
+});
+
+/* ---------------- 提示条 ---------------- */
+function closeNotice(){
+  document.getElementById("notice").style.display = "none";
+  try { sessionStorage.setItem("faq_notice", "1"); } catch(e){}
+}
+if((function(){ try { return sessionStorage.getItem("faq_notice") === "1"; } catch(e){ return false; } })()){
+  document.getElementById("notice").style.display = "none";
+}
+
+/* ---------------- 回顶 ---------------- */
+var $top = document.getElementById("top");
+window.addEventListener("scroll", function(){
+  $top.classList.toggle("on", window.scrollY > 420);
+}, { passive: true });
+$top.addEventListener("click", function(){ window.scrollTo({ top:0, behavior:"smooth" }); });
+
+/* ---------------- 深链 ---------------- */
+function fromHash(){
+  var id = (location.hash || "").replace("#", "");
+  if(!id) return;
+  state.term = ""; $q.value = ""; $box.classList.remove("has");
+  if(id.charAt(0) === "q" && id.length > 1){ jumpTo(id); return; }
+  if(id.charAt(0) === "g" && id.length > 1){
+    state.g = id; state.kind = "all"; render();
+  }
+}
+window.addEventListener("hashchange", fromHash);
+
+document.getElementById("mTotal").textContent = QA.length;
+document.getElementById("mGroup").textContent = GROUPS.length;
+
+(function(){
+  var m = location.search.match(/[?&]s=([^&]*)/);
+  if(m){
+    var v = decodeURIComponent(m[1]);
+    $q.value = v; $box.classList.add("has"); state.term = v;
+  }
+})();
+
+render();
+fromHash();
+</script>
+</body>
+</html>
